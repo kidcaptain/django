@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Etudiant
+{% endblock %}
+{% block content %}
+<div class="container">
+    <a href="{% url 'dog_shelters:classe_detail' pk %}">
+        Retour </a>
+    <form style=" margin: auto; width: 500px; margin-top: 50px; border: 1px springgreen solid; padding: 10px;"  method="post">
+        {% csrf_token %}
+        <h1>Ajouter un Etudiant</h1>
+            <div>
+                <label for="a">Nom</label>
+                <input style="width: 100%;" type="text" name="a" id="a">
+            </div>
+            <div>
+                <label for="b">Prenom</label>
+                <input  style="width: 100%;" type="text" name="b" id="b">
+            </div>
+            <div>
+                <label for="b">Date Naissance</label>
+                <input style="width: 100%;" type="date" name="c" id="c">
+            </div>
+            <div>
+                
+                <input style="width: 100%; opacity: 0;" value="{{ pk }}" type="text" name="d" id="d">
+            </div>
+        <button style="margin-top: 10px;" type="submit">Ajouter</button>
+    </form>
+</div>
+{% endblock %}

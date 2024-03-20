@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}
+Etudiants
+{% endblock %}
+{% block content %}
+<div class="list">
+
+    <div class="contener">
+        <div class="link_back">
+            <a href="{% url 'dog_shelters:classe_list' %}">
+                <- Liste des étudiants </a>
+                
+        </div>
+        <h1>{{ classe.nom }}</h1>
+        <div class="contener">
+            <h3>Spécialité: {{ classe.specialite }}</h3>
+        </div>
+        <a href="{% url 'dog_shelters:index' classe.id %}">
+            Ajouter des étudiants </a>
+        <div>
+            <h1>Les etudiants disponibles </h1>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Nom</td>
+                    <td>Prenom</td>
+                    <td>Date de naissance</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for etudiant in etudiant %}
+                <tr>
+                    <td>
+                        {{etudiant.nom}}
+                    </td>
+                    <td>{{etudiant.prenom}}</td>
+                    <td>{{etudiant.dateNaiss}}</td>
+                    <!-- <td>Suprimer / modifier</td> -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+ 
+</div>
+{% endblock %}
